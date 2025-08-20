@@ -1,0 +1,6 @@
+@Draftli.Api_HostAddress = http://localhost:5010
+
+GET {{Draftli.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

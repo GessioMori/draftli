@@ -11,7 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.3.1" />
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.4.1" />
+    <PackageReference Include="Aspire.Hosting.NodeJs" Version="9.4.1" />
+    <PackageReference Include="CommunityToolkit.Aspire.Hosting.NodeJS.Extensions" Version="9.7.1-beta.348" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Draftli.Api\Draftli.Api.csproj" />
+    <ProjectReference Include="..\Draftli.Worker\Draftli.Worker.csproj" />
   </ItemGroup>
 
 </Project>

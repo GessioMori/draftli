@@ -12,10 +12,13 @@ internal class Program
 
         builder.AddProject<Projects.Draftli_Worker>("draftli-worker");
 
-        builder.AddViteApp("react", "../Draftli.Web")
+        IResourceBuilder<NodeAppResource> react = builder.AddViteApp("react", "../Draftli.Web")
             .WithReference(apiService)
             .WaitFor(apiService)
-            .WithNpmPackageInstallation();
+            .WithNpmPackageInstallation()
+            .WithEnvironment("VITE_API_URL", apiService.GetEndpoint("https"));
+
+        apiService.WithEnvironment("CORS_ALLOWED_ORIGINS", react.GetEndpoint("http"));
 
         builder.Build().Run();
     }

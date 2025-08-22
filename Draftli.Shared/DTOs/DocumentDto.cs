@@ -1,2 +1,2 @@
 ﻿namespace Draftli.Shared.DTOs;
-public record DocumentDto(int Id, string Content, int Version);
+public record DocumentDto(Guid Id, string Content, long Version);

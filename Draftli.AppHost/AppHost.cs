@@ -4,7 +4,11 @@ internal class Program
     {
         IDistributedApplicationBuilder builder = DistributedApplication.CreateBuilder(args);
 
-        IResourceBuilder<ProjectResource> apiService = builder.AddProject<Projects.Draftli_Api>("draftli-api");
+        IResourceBuilder<RedisResource> redis = builder.AddRedis("redis");
+
+        IResourceBuilder<ProjectResource> apiService = builder
+            .AddProject<Projects.Draftli_Api>("draftli-api")
+            .WithReference(redis);
 
         builder.AddProject<Projects.Draftli_Worker>("draftli-worker");
 
